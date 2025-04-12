@@ -1,0 +1,139 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>main</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .login-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-box input[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .updates {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .update-box {
+      flex: 1;
+      height: 150px;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .update-content {
+      position: absolute;
+      width: 100%;
+      animation: scroll-up 10s linear infinite;
+    }
+
+    @keyframes scroll-up {
+      0% { top: 100%; }
+      100% { top: -100%; }
+    }
+
+    .about {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    .about h3 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="login-box">
+    <h2>Login</h2>
+    <form>
+      <input type="text" placeholder="Username" required><br>
+      <input type="password" placeholder="Password" required><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <div class="updates">
+    <div class="update-box">
+      <div class="update-content">
+        <p>Update 1: Welcome to our portal!</p>
+        <p>Update 2: Maintenance scheduled for Sunday.</p>
+        <p>Update 3: New features launching soon.</p>
+      </div>
+    </div>
+    <div class="update-box">
+      <div class="update-content">
+        <p>Tip 1: Reset your password regularly.</p>
+        <p>Tip 2: Enable two-factor authentication.</p>
+        <p>Tip 3: Check for new messages often.</p>
+      </div>
+    </div>
+    <div class="update-box">
+      <div class="update-content">
+        <p>Event 1: Webinar on April 15.</p>
+        <p>Event 2: User survey next week.</p>
+        <p>Event 3: New blog post out now.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <h3>About Us</h3>
+    <p>We are dedicated to providing the best user experience through secure and efficient services. Our platform helps users stay informed and connected.</p>
+  </div>
+</div>
+
+</body>
+</html>
