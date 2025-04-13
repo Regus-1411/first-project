@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffe6cc; /* Light background */
+    }
+    .header {
+      background-color: #994f00;
+      color: rgb(0, 0, 0);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-btn {
+      font-size: 26px;
+      cursor: pointer;
+      padding: 6px 12px;
+      color: #000000;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .menu-btn:hover {
+      background: #ffe6cc;
+      
+    }
+
+    .profile {
+      font-size: 22px;
+      cursor: pointer;
+      color: #000000;
+      padding: 6px 10px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .profile:hover {
+      background-color: #ffe6cc;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #333;
+      color: white;
+      width: 220px;
+      height: 100%;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      transition: left 0.4s ease;
+      overflow-y: auto;
+      z-index: 1000;
+      box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .nav-bar.show {
+      left: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .nav-bar a {
+      text-decoration: none;
+      color: white;
+      padding: 15px 20px;
+      border-bottom: 1px solid #444;
+      transition: background 0.3s;
+    }
+
+    .nav-bar a:hover {
+      background-color: #555;
+    }
+
+    .logout {
+      background-color: #222;
+      padding: 15px 20px;
+      text-align: center;
+      cursor: pointer;
+      border-bottom-right-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    .logout:hover {
+      background-color: #555;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="top-controls">
+      <span class="menu-btn" onclick="toggleMenu()">☰</span>
+      <h1>Student Portal</h1>
+    </div>
+    <span class="profile" title="Profile" onclick="goToProfile()">👤</span>
+  </div>
+
+  <div class="nav-bar" id="navBar">
+    <div class="nav-links">
+      <a href="javascript:void(0)" onclick="navigateAndClose('javascript:history.back()')">← Go Back</a>
+      <a href="#page1" onclick="navigateAndClose('#page1')">Dashboard</a>
+      <a href="#page2" onclick="navigateAndClose('#page2')">Assignments</a>
+      <a href="#page3" onclick="navigateAndClose('#page3')">Grades</a>
+      <a href="#page4" onclick="navigateAndClose('#page4')">Resources</a>
+    </div>
+    <div class="logout" onclick="logout()">🔓 Logout</div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navBar = document.getElementById("navBar");
+      navBar.classList.toggle("show");
+    }
+
+    function goToProfile() {
+      window.location.href = "profile.html";
+    }
+
+    function logout() {
+      alert("Logging out...");
+    }
+
+    function navigateAndClose(target) {
+      if (target.startsWith("#")) {
+        window.location.hash = target;
+      } else {
+        window.location.href = target;
+      }
+      document.getElementById("navBar").classList.remove("show");
+    }
+  </script>
+</body>
+</html>
