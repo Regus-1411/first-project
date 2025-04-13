@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe6cc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #994f00;
+      color: whitesmoke;
+      padding: 5px;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .container-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      width: 500px;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      background-color: #ffe6cc;
+    }
+
+    .left {
+      width: 50%;
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfRFyG8gb05HoB9KSBDxwts80aQ9h7wVmLkKAkTBmo77UViyyu2XpJMlXu4hdKgY8-JaE&usqp=CAU') no-repeat center center;
+      background-size: cover;
+    }
+
+    .right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      background-color: #ffe6cc;
+    }
+
+    .right h1 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+
+    .button-group button {
+      padding: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      background-color: #994f00;
+      color: whitesmoke;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .button-group button:hover {
+      background-color: #c98236;
+    }
+  </style>
+  <title>SYLLABUS</title>
+</head>
+<body>
+  <header>
+    <h1>SYLLABUS</h1>
+  </header>
+
+  <!-- FLEX WRAPPER FOR HORIZONTAL ALIGNMENT -->
+  <div class="container-wrapper">
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <h1>CSE</h1>
+        <div class="button-group">
+          <button>SYLLABUS</button>
+          <button>M&P</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <h1>AIML</h1>
+        <div class="button-group">
+          <button>SYLLABUS</button>
+          <button>M&P</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <h1>CIC</h1>
+        <div class="button-group">
+          <button>SYLLABUS</button>
+          <button>M&P</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <h1>IT</h1>
+        <div class="button-group">
+          <button>SYLLABUS</button>
+          <button>M&P</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
