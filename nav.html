@@ -1,138 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Navigation Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffe6cc; /* Light background */
+    }
+    .header {
+      background-color: #994f00;
+      color: rgb(0, 0, 0);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        .header {
-            background-color: #333;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            position: relative;
-        }
+    .menu-btn {
+      font-size: 26px;
+      cursor: pointer;
+      padding: 6px 12px;
+      color: #000000;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
 
-        .menu-btn {
-            font-size: 24px;
-            cursor: pointer;
-        }
+    .menu-btn:hover {
+      background: #ffe6cc;
+      
+    }
 
-        .profile {
-            font-size: 20px;
-            cursor: pointer;
-        }
+    .profile {
+      font-size: 22px;
+      cursor: pointer;
+      color: #000000;
+      padding: 6px 10px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
 
-        .nav-bar {
-            position: fixed;
-            top: 0;
-            left: -220px;
-            background-color: #444;
-            width: 200px;
-            height: 100%;
-            transition: left 0.4s ease;
-            overflow-y: auto;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+    .profile:hover {
+      background-color: #ffe6cc;
+    }
 
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-        }
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #333;
+      color: white;
+      width: 220px;
+      height: 100%;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      transition: left 0.4s ease;
+      overflow-y: auto;
+      z-index: 1000;
+      box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-        .nav-bar a {
-            text-decoration: none;
-            color: white;
-            padding: 15px 20px;
-            border-bottom: 1px solid #555;
-            display: block;
-        }
+    .nav-bar.show {
+      left: 0;
+    }
 
-        .nav-bar.show {
-            left: 0;
-        }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
 
-        h1 {
-            margin: 0;
-        }
+    .nav-bar a {
+      text-decoration: none;
+      color: white;
+      padding: 15px 20px;
+      border-bottom: 1px solid #444;
+      transition: background 0.3s;
+    }
 
-        .top-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    .nav-bar a:hover {
+      background-color: #555;
+    }
 
-        .logout {
-            background-color: #222;
-            padding: 15px 20px;
-            text-align: center;
-            border-top: 1px solid #555;
-            cursor: pointer;
-            color: white;
-        }
+    .logout {
+      background-color: #222;
+      padding: 15px 20px;
+      text-align: center;
+      cursor: pointer;
+      border-bottom-right-radius: 20px;
+      transition: background 0.3s;
+    }
 
-        .logout:hover {
-            background-color: #555;
-        }
-    </style>
+    .logout:hover {
+      background-color: #555;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-grow: 1;
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="top-controls">
-            <span class="menu-btn" onclick="toggleMenu()">☰</span>
-            <h1>Website</h1>
-        </div>
-        <span class="profile" title="Profile" onclick="goToProfile()">👤</span>
+  <div class="header">
+    <div class="top-controls">
+      <span class="menu-btn" onclick="toggleMenu()">☰</span>
+      <h1>Student Portal</h1>
     </div>
+    <span class="profile" title="Profile" onclick="goToProfile()">👤</span>
+  </div>
 
-    <div class="nav-bar" id="navBar">
-        <div class="nav-links">
-            <a href="javascript:void(0)" onclick="navigateAndClose('javascript:history.back()')">← Go Back</a>
-            <a href="#page1" onclick="navigateAndClose('#page1')">Page 1</a>
-            <a href="#page2" onclick="navigateAndClose('#page2')">Page 2</a>
-            <a href="#page3" onclick="navigateAndClose('#page3')">Page 3</a>
-            <a href="#page4" onclick="navigateAndClose('#page4')">Page 4</a>
-        </div>
-        <div class="logout" onclick="logout()">🔓 Logout</div>
+  <div class="nav-bar" id="navBar">
+    <div class="nav-links">
+      <a href="javascript:void(0)" onclick="navigateAndClose('javascript:history.back()')">← Go Back</a>
+      <a href="#page1" onclick="navigateAndClose('#page1')">Dashboard</a>
+      <a href="#page2" onclick="navigateAndClose('#page2')">Assignments</a>
+      <a href="#page3" onclick="navigateAndClose('#page3')">Grades</a>
+      <a href="#page4" onclick="navigateAndClose('#page4')">Resources</a>
     </div>
+    <div class="logout" onclick="logout()">🔓 Logout</div>
+  </div>
 
-    <script>
-        function toggleMenu() {
-            const navBar = document.getElementById("navBar");
-            navBar.classList.toggle("show");
-        }
+  <script>
+    function toggleMenu() {
+      const navBar = document.getElementById("navBar");
+      navBar.classList.toggle("show");
+    }
 
-        function goToProfile() {
-            window.location.href = "profile.html"; // Change this to your actual profile page
-        }
+    function goToProfile() {
+      window.location.href = "profile.html";
+    }
 
-        function logout() {
-            alert("Logging out...");
-            // Add logout logic here
-        }
+    function logout() {
+      alert("Logging out...");
+    }
 
-        function navigateAndClose(target) {
-            // Navigate (if not a special case like history.back)
-            if (target.startsWith("#")) {
-                window.location.hash = target;
-            } else {
-                window.location.href = target;
-            }
-
-            // Close sidebar
-            document.getElementById("navBar").classList.remove("show");
-        }
-    </script>
+    function navigateAndClose(target) {
+      if (target.startsWith("#")) {
+        window.location.hash = target;
+      } else {
+        window.location.href = target;
+      }
+      document.getElementById("navBar").classList.remove("show");
+    }
+  </script>
 </body>
 </html>
