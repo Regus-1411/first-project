@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Updated Exams & Events</title>
+  <link rel="stylesheet" href="updates.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Scrolling Exams Section -->
+    <div class="exams-section">
+      <h2>Upcoming Examinations</h2>
+      <div class="exams-box">
+        <div class="exams-scrolling">
+          <div class="exam-item"><a href="#" class="exam-link">1st Year Supply Exams - 10th May</a></div>
+          <div class="exam-item"><a href="#" class="exam-link">2nd Year Main Exams - 15th May</a></div>
+          <div class="exam-item"><a href="#" class="exam-link">3rd Year Supply Exams - 20th May</a></div>
+          <div class="exam-item"><a href="#" class="exam-link">Final Year Main Exams - 25th May</a></div>
+          <div class="exam-item"><a href="#" class="exam-link">Post-Graduation Exams - 30th May</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Events Section -->
+    <div class="events-section">
+      <h2>Other Upcoming Events</h2>
+      <div class="events-box">
+        <button class="scroll-btn prev-btn" onclick="scrollEvents('prev')">←</button>
+        <div class="events-scrolling" id="eventsScroll">
+          <div class="event-item">
+            <img src="https://cdn.wallpapersafari.com/44/55/kp50Ri.jpg" alt="Event 1" class="event-image" />
+            <div class="event-description"><p class="event-text">Details for Event 1</p></div>
+            <button class="event-button">View More</button>
+          </div>
+          <div class="event-item">
+            <img src="https://my.alfred.edu/zoom/_images/foster-lake.jpg" alt="Event 2" class="event-image" />
+            <div class="event-description"><p class="event-text">Details for Event 2</p></div>
+            <button class="event-button">View More</button>
+          </div>
+          <div class="event-item">
+            <img src="https://cdn.platformtraining.com/wp-content/uploads/2016/12/panxe-qjwhe-paul-morris.jpg" alt="Event 3" class="event-image" />
+            <div class="event-description"><p class="event-text">Details for Event 3</p></div>
+            <button class="event-button">View More</button>
+          </div>
+          <div class="event-item">
+            <img src="https://miro.medium.com/max/3840/1*xMuIOwjliGUPjkzukeWKfw.jpeg" alt="Event 4" class="event-image" />
+            <div class="event-description"><p class="event-text">Details for Event 4</p></div>
+            <button class="event-button">View More</button>
+          </div>
+        </div>
+        <button class="scroll-btn next-btn" onclick="scrollEvents('next')">→</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="complain-btn" onclick="location.href='issue.html'">
+    Report Issue
+  </button>
+
+  <!-- Inline JavaScript -->
+  <script>
+    function scrollEvents(direction) {
+      const container = document.getElementById('eventsScroll');
+      const scrollAmount = 320;
+      if (direction === 'next') {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
