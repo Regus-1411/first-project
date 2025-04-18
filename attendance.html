@@ -1,0 +1,93 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Attendance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #ffe6cc;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background:   white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background-color:#994f00;
+      color: white;
+    }
+    .present {
+      background-color: #c8e6c9;
+      color: green;
+      font-weight: bold;
+    }
+    .absent {
+      background-color: #ffcdd2;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <div>
+
+    </div>
+
+
+<h1>Student Attendance </h1>
+
+<table id="attendanceTable">
+  <thead>
+    <tr>
+      <th>Hour 1<br>(9.00AM to 9.45AM)</th>
+      <th>Hour 2<br>(9.45AM to 10.30AM)</th>
+      <th>Hour 3<br>(10.30AM to 11.15AM)</th>
+      <th>Hour 4<br>(11.15AM to 12.00PM)</th>
+      <th>Hour 5<br>(1.30PM to 2.15PM)</th>
+      <th>Hour 6<br>(2.15PM to 3.00PM)</th>
+      <th>Hour 7<br>(3.00PM to 3.45PM)</th>
+      <th>Hour 8<br>(3.45PM to 4.30PM)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td onclick="toggleAttendance(this)">✖</td>
+      <td onclick="toggleAttendance(this)">✖</td>
+      <td onclick="toggleAttendance(this)">✖</td>
+      <td onclick="toggleAttendance(this)">✖</td>
+      <td onclick="toggleAttendance(this)">✖</td>
+      <td onclick="toggleAttendance(this)">✖</td>
+      <td onclick="toggleAttendance(this)">✖</td>
+      <td onclick="toggleAttendance(this)">✖</td>
+    </tr>
+    <!-- Add more student rows as needed -->
+  </tbody>
+</table>
+
+<script>
+  function toggleAttendance(cell) {
+    if (cell.classList.contains('present')) {
+      cell.classList.remove('present');
+      cell.classList.add('absent');
+      cell.textContent = '✖';
+    } else {
+      cell.classList.remove('absent');
+      cell.classList.add('present');
+      cell.textContent = '✔';
+    }
+  }
+</script>
+
+</body>
+</html>
