@@ -14,14 +14,19 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
+      margin-top: 100px;
       background:   white;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    th, td {
+    th{
       border: 1px solid #ddd;
       padding: 12px;
       text-align: center;
+    }td{
+    border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+      font-size: larger;
     }
     th {
       background-color:#994f00;
@@ -37,16 +42,20 @@
       color: red;
       font-weight: bold;
     }
+
   </style>
 </head>
 <body>
-    <div>
-
-    </div>
+<h1>Student Attendance</h1>
+<div style="margin-top: 5%; text-align: center;">
+    <h2><u>CURRENT PERCENTAGE:  --%</u></h2>
+    <h3>TOTAL NO OF CLASSES ATTENDED:---/---</h3>
+</div>
 
 <table id="attendanceTable">
   <thead>
     <tr>
+      <th style="padding-right: 40px;padding-left: 40px;">DATE</th>
       <th>Hour 1<br>(9.00AM to 9.45AM)</th>
       <th>Hour 2<br>(9.45AM to 10.30AM)</th>
       <th>Hour 3<br>(10.30AM to 11.15AM)</th>
@@ -59,32 +68,140 @@
   </thead>
   <tbody>
     <tr>
-      <td onclick="toggleAttendance(this)">✖</td>
-      <td onclick="toggleAttendance(this)">✖</td>
-      <td onclick="toggleAttendance(this)">✖</td>
-      <td onclick="toggleAttendance(this)">✖</td>
-      <td onclick="toggleAttendance(this)">✖</td>
-      <td onclick="toggleAttendance(this)">✖</td>
-      <td onclick="toggleAttendance(this)">✖</td>
-      <td onclick="toggleAttendance(this)">✖</td>
+      <td>--/--</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
     </tr>
-    <!-- Add more student rows as needed -->
+    <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>--/--</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
   </tbody>
 </table>
 
-<script>
-  function toggleAttendance(cell) {
-    if (cell.classList.contains('present')) {
-      cell.classList.remove('present');
-      cell.classList.add('absent');
-      cell.textContent = '✖';
-    } else {
-      cell.classList.remove('absent');
-      cell.classList.add('present');
-      cell.textContent = '✔';
-    }
-  }
-</script>
 
 </body>
 </html>
