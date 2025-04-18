@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portal</title>
+  <title>Student Portal</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffe6cc; /* Light background */
+      background-color: #ffe6cc;
     }
     .header {
       background-color: #994f00;
-      color: rgb(0, 0, 0);
+      color: #000;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -22,34 +22,28 @@
       border-bottom-right-radius: 12px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
-
     .menu-btn {
       font-size: 26px;
       cursor: pointer;
       padding: 6px 12px;
-      color: #000000;
+      color: #000;
       border-radius: 8px;
       transition: background 0.3s;
     }
-
     .menu-btn:hover {
       background: #ffe6cc;
-      
     }
-
     .profile {
       font-size: 22px;
       cursor: pointer;
-      color: #000000;
+      color: #000;
       padding: 6px 10px;
       border-radius: 50%;
       transition: background 0.3s;
     }
-
     .profile:hover {
       background-color: #ffe6cc;
     }
-
     .nav-bar {
       position: fixed;
       top: 0;
@@ -68,17 +62,14 @@
       flex-direction: column;
       justify-content: space-between;
     }
-
     .nav-bar.show {
       left: 0;
     }
-
     .nav-links {
       display: flex;
       flex-direction: column;
       margin-top: 20px;
     }
-
     .nav-bar a {
       text-decoration: none;
       color: white;
@@ -86,11 +77,9 @@
       border-bottom: 1px solid #444;
       transition: background 0.3s;
     }
-
     .nav-bar a:hover {
       background-color: #555;
     }
-
     .logout {
       background-color: #222;
       padding: 15px 20px;
@@ -99,22 +88,22 @@
       border-bottom-right-radius: 20px;
       transition: background 0.3s;
     }
-
     .logout:hover {
       background-color: #555;
     }
-
     h1 {
       margin: 0;
       text-align: center;
       flex-grow: 1;
     }
-
     .top-controls {
       display: flex;
       align-items: center;
       gap: 12px;
       flex-grow: 1;
+    }
+    main#content {
+      padding: 20px;
     }
   </style>
 </head>
@@ -124,42 +113,70 @@
       <span class="menu-btn" onclick="toggleMenu()">☰</span>
       <h1>Student Portal</h1>
     </div>
-    <span class="profile" title="Profile" onclick="goToProfile()">👤</span>
+    <span class="profile" title="Profile" onclick="navigateTo('profile.html')">👤</span>
   </div>
 
   <div class="nav-bar" id="navBar">
     <div class="nav-links">
-      <a href="javascript:void(0)" onclick="navigateAndClose('javascript:history.back()')">← Go Back</a>
-      <a href="#page1" onclick="navigateAndClose('#page1')">Dashboard</a>
-      <a href="#page2" onclick="navigateAndClose('#page2')">Assignments</a>
-      <a href="#page3" onclick="navigateAndClose('#page3')">Grades</a>
-      <a href="#page4" onclick="navigateAndClose('#page4')">Resources</a>
+      <a href="#" onclick="goBack()">← Go Back</a>
+      <a href="attendence.html">Attendence</a>
+      <a href="#syllabus.html">Syllabus</a>
+      <a href="#grades.html">Grades</a>
+      <a href="#resources.html">Resources</a>
     </div>
     <div class="logout" onclick="logout()">🔓 Logout</div>
   </div>
 
+  <main id="content">Loading...</main>
+
   <script>
+    const navBar = document.getElementById("navBar");
+  
     function toggleMenu() {
-      const navBar = document.getElementById("navBar");
       navBar.classList.toggle("show");
     }
-
-    function goToProfile() {
-      window.location.href = "profile.html";
-    }
-
+  
     function logout() {
       alert("Logging out...");
     }
-
-    function navigateAndClose(target) {
-      if (target.startsWith("#")) {
-        window.location.hash = target;
-      } else {
-        window.location.href = target;
-      }
-      document.getElementById("navBar").classList.remove("show");
+  
+    function goBack() {
+      history.back();
     }
+  
+    function navigateTo(page) {
+      location.hash = page;
+    }
+  
+    function loadPageFromHash() {
+      const page = location.hash ? location.hash.substring(1) : 'updates.html'; 
+      fetch(page)
+        .then(res => {
+          if (!res.ok) throw new Error("404");
+          return res.text();
+        })
+        .then(html => {
+          document.getElementById("content").innerHTML = html;
+          navBar.classList.remove("show");
+          window.scrollTo(0, 0);
+        })
+        .catch(() => {
+          document.getElementById("content").innerHTML = "<p>Page not found.</p>";
+        });
+    }
+  
+    document.addEventListener("click", (e) => {
+      const clickedInsideNav = navBar.contains(e.target);
+      const clickedMenuBtn = e.target.closest(".menu-btn");
+      if (!clickedInsideNav && !clickedMenuBtn) {
+        navBar.classList.remove("show");
+      }
+    });
+  
+    window.addEventListener("hashchange", loadPageFromHash);
+    window.addEventListener("DOMContentLoaded", loadPageFromHash);
   </script>
+  
+  
 </body>
 </html>

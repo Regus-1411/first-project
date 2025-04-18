@@ -1,0 +1,199 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe6cc;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Exams Section */
+  .exams-section {
+    margin-bottom: 30px;
+  }
+  
+  .exams-box {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  .exams-scrolling {
+    display: flex;
+    flex-direction: column;
+    animation: scrollExam 10s linear infinite;
+  }
+  
+  .exam-item {
+    padding: 10px;
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  .exam-link {
+    text-decoration: none;
+    color: red;
+    font-size: 18px;
+  }
+  
+  .exam-link:hover {
+    color: darkred;
+  }
+  
+  @keyframes scrollExam {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  /* Events Section */
+  .events-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .events-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2); /* translucent white */
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .events-scrolling {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .event-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    flex-shrink: 0;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  .event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .event-description {
+    position: absolute;
+    bottom: 50px;
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .event-text {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .event-button {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .event-button:hover {
+    background-color: #45a049;
+  }
+  
+  .scroll-btn {
+    background-color: #000;
+    color: white;
+    border: none;
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    opacity: 0.7;
+    transition: opacity 0.3s, background-color 0.3s;
+    cursor: pointer;
+  }
+  
+  .scroll-btn:hover {
+    opacity: 1;
+    background-color: #333;
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+  
+  .complain-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff6600, #cc3300);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.3s;
+    z-index: 1000;
+  }
+
+  .complain-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  }
+
+  .complain-btn::after {
+    content: " ✉️";
+  }
+  
