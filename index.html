@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Stylish Peach Portal</title>
+  <title>LOGIN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -27,7 +27,7 @@
 
     .container {
       width: 90%;
-      max-width: 1000px;
+      max-width: 800px;
       margin-top: 40px;
       text-align: center;
     }
@@ -46,46 +46,66 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .login-box h2 {
-      margin-bottom: 25px;
+    .login-content {
+      display: flex;
+      align-items: center;
+
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      width: 250px;
+      height: auto;
+      margin-left: 20px ;
+    }
+
+    .form-section {
+      flex: 1;
+      min-width: 250px;
+      text-align: left;
+    }
+
+    .form-section h2 {
+      margin-bottom: 20px;
       color: var(--primary);
     }
 
-    .login-box input[type="text"],
-    .login-box input[type="password"] {
-      width: 40%;
+    .form-section input[type="text"],
+    .form-section input[type="password"],
+    .form-section input[type="submit"] {
+      width: 50%;
       padding: 12px;
-      margin: 12px 0;
+      margin: 15px 150px;
       border: none;
-      margin-left: 45%;
       border-radius: 8px;
       box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
-      transition: 0.2s;
       background-color: #fff7ed;
+      transition: 0.2s;
     }
 
-    .login-box input[type="text"]:focus,
-    .login-box input[type="password"]:focus {
+    .form-section input[type="text"]:focus,
+    .form-section input[type="password"]:focus {
       outline: none;
       box-shadow: 0 0 10px var(--primary);
     }
 
-    .login-box input[type="submit"] {
-      padding: 12px 30px;
-      border: none;
+    .form-section input[type="submit"] {
       background: linear-gradient(135deg, #cc6600, var(--primary));
       color: white;
-      border-radius: 8px;
-      cursor: pointer;
       font-weight: bold;
-      margin-left: 45%;
+      cursor: pointer;
       transition: all 0.3s ease;
     }
 
-    .login-box input[type="submit"]:hover {
+    .form-section input[type="submit"]:hover {
       background: linear-gradient(135deg, var(--primary), #cc6600);
       box-shadow: 0 0 12px var(--primary);
       transform: scale(1.05);
+    }
+
+    .form-section label {
+      display: inline-block;
+      margin-top: 5px;
     }
 
     .updates {
@@ -153,9 +173,18 @@
     }
 
     @media (max-width: 768px) {
-      .login-box input[type="text"],
-      .login-box input[type="password"],
-      .login-box input[type="submit"] {
+      .login-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .form-section {
+        text-align: center;
+      }
+
+      .form-section input[type="text"],
+      .form-section input[type="password"],
+      .form-section input[type="submit"] {
         width: 95%;
       }
 
@@ -169,15 +198,22 @@
 
 <div class="container">
   <div class="login-box">
-    <h2 style="margin-left: 400px;">Login</h2>
-    <form id="loginForm">
-      <input type="text" id="email" placeholder="Email" required><br>
-      <input type="password" id="password" placeholder="Password" required><br>
-      <label style="margin-left: 400px;">
-        <input type="checkbox" id="showPassword"> Show Password
-      </label><br>
-      <input type="submit" value="Login">
-    </form>
+    <div class="login-content">
+      <div class="logo">
+        <img src="https://cdn.sanity.io/images/kts928pd/production/c2fcbae1ac2dcdbf24af1e394b95cde0635cbc70-731x731.png" alt="Logo">
+      </div>
+      <div class="form-section">
+        <h2 style="margin-left: 230px;">Login</h2>
+        <form id="loginForm">
+          <input type="text" id="email" placeholder="Email" required><br>
+          <input type="password" id="password" placeholder="Password" required><br>
+          <label>
+            <input type="checkbox" id="showPassword" style="margin-left: 150px;"> Show Password
+          </label><br>
+          <input type="submit" value="Login">
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="updates">
@@ -224,21 +260,15 @@
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address.");
     } else if (email === validEmail && password === validPassword) {
-      // alert("Login successful!");
       window.location.href = "nav.html";
     } else {
       alert("Invalid email or password.");
     }
   });
 
-  // Show/Hide password toggle
   document.getElementById('showPassword').addEventListener('change', function() {
     const passwordField = document.getElementById('password');
-    if (this.checked) {
-      passwordField.type = 'text';  // Show password
-    } else {
-      passwordField.type = 'password';  // Hide password
-    }
+    passwordField.type = this.checked ? 'text' : 'password';
   });
 </script>
 
