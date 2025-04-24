@@ -5,16 +5,14 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 30px;
       background-color: #ffe6cc;
     }
     h1 {
       text-align: center;
     }
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 100px;
+      width: 2%;
+      margin-left: 38%;
       background:   white;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
@@ -32,24 +30,55 @@
       background-color:#994f00;
       color: white;
     }
-    .present {
-      background-color: #c8e6c9;
-      color: green;
-      font-weight: bold;
-    }
-    .absent {
-      background-color: #ffcdd2;
-      color: red;
-      font-weight: bold;
+    #attendanceTable{
+      position: absolute;
+      margin-top: 0%;
+    
     }
 
   </style>
 </head>
 <body>
-<h1>Student Attendance</h1>
-<div style="margin-top:; text-align: center;">
+<div style="text-align: center; position: absolute; align-items: flex-start; margin-left: 130px;">
+  <h1>Attendance Details</h1>
     <h2><u>CURRENT PERCENTAGE:  --%</u></h2>
     <h3>TOTAL NO OF CLASSES ATTENDED:---/---</h3>
+    <table id="attendanceTable" style="position: absolute; margin-left: 0%;">
+      <tr>
+        <th>SUBJECTS</th>
+        <th>Classes Conducted</th>
+        <th>Classes attendanded</th>
+      </tr>
+      <tr>
+        <td>SUB-1</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>SUB-2</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>SUB-3</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>SUB-4</td>
+        <td>-</td>
+        <td>-</td>
+      </tr><tr>
+        <td>SUB-5</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>SUB-6</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </table>
 </div>
 
 <table id="attendanceTable">
