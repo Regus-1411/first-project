@@ -20,6 +20,28 @@
       text-align: center;
       font-size: 24px;
       font-weight: bold;
+      position: relative;
+    }
+
+    /* Go Back Button */
+    .back-button {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 5px 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: white;
+      color: #994f00;
     }
 
     /* Form Container */
@@ -133,7 +155,10 @@
 </head>
 <body>
   <!-- Header and Navigation Bar -->
-  <div class="header">Issues</div>
+  <div class="header">
+    <button class="back-button" onclick="goBack()">← Back</button>
+    Issues
+  </div>
 
   <!-- Form Container -->
   <div class="form-container">
@@ -156,6 +181,11 @@
   </div>
 
   <script>
+    // Go Back button functionality
+    function goBack() {
+      window.history.back();
+    }
+
     // Set up event listeners for the impact options
     document.querySelectorAll('.impact-option').forEach(function(option) {
       option.addEventListener('click', function() {
@@ -166,7 +196,7 @@
         
         // Highlight the selected option
         option.style.opacity = '1';
-        document.getElementById('impact').value = option.dataset.impact; // Set the hidden input to the selected value
+        document.getElementById('impact').value = option.dataset.impact;
       });
     });
 
